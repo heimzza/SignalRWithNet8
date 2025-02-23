@@ -1,4 +1,4 @@
-namespace SignalRWithNet8.SignalRWithNet8.ChatService.Models;
+namespace FormulaOne.ChatService.Models;
 
 public class UserConnection
 {
