@@ -12,7 +12,7 @@ function App() {
     try {
       
       const conn = new HubConnectionBuilder()
-        .withUrl('http://localhost:5125')
+        .withUrl('http://localhost:5125/Chat')
         .configureLogging(LogLevel.Information)
         .build();
 
@@ -32,7 +32,7 @@ function App() {
     <div>
       <main>
         <Container>
-          <Row class='px-5 my-5'>
+          <Row className='px-5 my-5'>
             <Col sm='12'>
               <h1 className='font-weight-light'>Formula One Chat App</h1>
             </Col>
