@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 
-const WaitingRoom = ({ room, user }) => {
+const WaitingRoom = ({ joinChatRoom }) => {
 
     const [username, setUsername] = useState([]);
     const [chatroom, setChatRoom] = useState([]);
