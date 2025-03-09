@@ -4,9 +4,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import WaitingRoom from './components/waitingRoom';
 import { useState } from 'react';
 import { HubConnectionBuilder, LogLevel } from '@microsoft/signalr';
+import ChatRoom from './components/chatRoom';
 
 function App() {
   const[conn, setConnection] = useState();
+  const[messages, setMessages] = useState([]);
 
   const joinChatRoom = async (username, chatroom) => {
     try {
@@ -17,7 +19,11 @@ function App() {
         .build();
 
         conn.on("JoinSpecificChatRoom", (username, msg) => {
-          console.log(`${username} says ${msg}`);
+          console.log(`${username} joined. ${msg}`);
+        });
+
+        conn.on("ReceiveSpecificMessage", (username, msg) => {
+          setMessages(messages => [...messages, {username, msg}]);
         });
 
         await conn.start();
@@ -37,9 +43,10 @@ function App() {
               <h1 className='font-weight-light'>Formula One Chat App</h1>
             </Col>
           </Row>
-          <WaitingRoom joinChatRoom={joinChatRoom}>
-            
-          </WaitingRoom>
+          { !conn 
+            ? <WaitingRoom joinChatRoom={joinChatRoom}></WaitingRoom>
+            : <ChatRoom messages={messages}></ChatRoom>
+          }
         </Container>
       </main>
     </div>
