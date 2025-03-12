@@ -13,3 +13,5 @@ const MessageContainer = ({ messages }) => {
             }
         </div>
 }
+
+export default MessageContainer;

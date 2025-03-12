@@ -1,4 +1,5 @@
 import { Col, Row } from "react-bootstrap";
+import MessageContainer from "./messageContainer";
 
 const ChatRoom = ({messages}) => <div>
     <Row className="px-5 py-5">
