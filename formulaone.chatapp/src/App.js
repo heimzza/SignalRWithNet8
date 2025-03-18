@@ -28,6 +28,7 @@ function App() {
 
         await conn.start();
         await conn.invoke("JoinSpecificChatRoom", {username, chatroom});
+        await conn.invoke("ReceiveSpecificMessage", "Hello World!");
 
         setConnection(conn);
     } catch (error) {

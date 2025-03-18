@@ -30,7 +30,7 @@ public class ChatHub : Hub
             .SendAsync("JoinSpecificChatRoom", "admin", $"{conn.UserName} has joined {conn.ChatRoom}");
     }
 
-    public async Task SendMessage(string message)
+    public async Task ReceiveSpecificMessage(string message)
     {
         if (_sharedDb.Connections.TryGetValue(Context.ConnectionId, out UserConnection conn))
         {

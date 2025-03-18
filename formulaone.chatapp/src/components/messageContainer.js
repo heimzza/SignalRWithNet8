@@ -1,6 +1,5 @@
 const MessageContainer = ({ messages }) => {
-    return 
-        <div>
+    return <div>
             {
                 messages.map((message, index) =>
                     <table striped bordered>
